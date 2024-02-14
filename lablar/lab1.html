@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+ var sayac = 0;
+
+ $("#arttır").click(function(){
+    sayac++;
+    if(sayac > 0){
+      $("#arayuz").css("background-color", "red");
+   
+    }else{
+      $("#arayuz").css("background-color", "lightblue");
+    }
+    $("#arayuz").text(sayac);
+ });
+
+ $("#azalt").click(function(){
+    sayac--;
+  
+     if(sayac < 0){
+      $("#arayuz").css("background-color", "yellow");
+    }else{
+      $("#arayuz").css("background-color", "lightblue");
+    }
+    $("#arayuz").text(sayac);
+ });
+});
+</script>
+<style>
+   button{
+     background-color: lightblue;
+     width:300px;
+     height: 300px;
+     color: white;
+     font-size: xx-large;
+     display: inline-block;
+   }
+</style>
+
+</head>
+<body>
+
+<button id="arttır">+</button>
+<button id="azalt">-</button>
+<button id="arayuz">0</button>
+
+</body>
+</html>

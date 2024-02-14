@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head>
+	<meta charset="utf8">
+    <style>
+    h1 {
+        color: #1abc9c;
+    }
+    .rem {
+        margin-left: 5px;
+        background-color: white;
+        color: red;
+        border: none;
+        cursor: pointer;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(function() {
+        $("#add").on("click", function() {
+        var val = $("input").val();  //Kullanıcının girdiği metni alır ve val değişkenine atar. 
+        if(val !== '') {                //: Eğer giriş kutusuna bir değer girilmişse
+            var elem = $("<li></li>").text(val);   // metni içeren yeni bir liste
+            $(elem).append("<button class='rem'>X</button>");   //silme işlemi yapacak bir "X" butonu 
+            $("#mylist").append(elem);             
+            $("input").val("");        // Giriş kutusunu temizler,
+            $(".rem").on("click", function() {  // x butonuna basıldığında listeler silinir
+                $(this).parent().remove();
+            });
+        }
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>Yapılacak Listesi</h1>
+    <input type="text" placeholder="Yeni Madde" />
+    <button id="add">Ekle</button>
+    <hr>
+    <ol id="mylist"></ol>
+</body></html>

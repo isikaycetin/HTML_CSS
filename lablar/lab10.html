@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+   button{
+     background-color: lightblue;
+     width:300px;
+     height: 300px;
+     color: white;
+     font-size: xx-large;
+     display: inline-block;
+   }
+</style>
+</head>
+<body>
+
+<button id="arttır">+</button>
+<button id="azalt">-</button>
+<button id="arayuz">0</button>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var sayac = 0;
+
+  document.getElementById("arttır").addEventListener("click", function() {
+    sayac++;
+    updateSayacUI();
+  });
+
+  document.getElementById("azalt").addEventListener("click", function() {
+    sayac--;
+    updateSayacUI();
+  });
+
+  function updateSayacUI() {
+    var arayuz = document.getElementById("arayuz");
+
+    if (sayac > 0) {
+      arayuz.style.backgroundColor = "red";
+    } else if (sayac < 0) {
+      arayuz.style.backgroundColor = "yellow";
+    } else {
+      arayuz.style.backgroundColor = "lightblue";
+    }
+
+    arayuz.textContent = sayac;
+  }
+});
+</script>
+</body>
+</html>

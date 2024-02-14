@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vücut Kitle İndeksi Hesaplama</title>
+    <link rel="stylesheet" href="js.css">
+    <style>
+        label {
+            display: block;
+        }
+
+        input {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Vücut Kitle İndeksi Hesaplama</h2>
+
+    <form action="">
+        <label for="boy">Boy (cm):</label>
+        <input type="text" id="boy">
+
+        <label for="kilo">Kilo (kg):</label>
+        <input type="text" id="kilo">
+
+        <input type="button" value="VKİ Hesapla" onclick="hesaplaVKI()"><br>
+
+        <label for="VKİ">VKİ DEĞERİNİZ</label>
+        <input type="text" id="VKİ">
+
+        <label for="Sonuç">Sonuç</label>
+        <input type="text" id="Sonuc" value="">
+
+        <input type="reset" value="Reset" onclick="resetForm()">
+    </form>
+
+    <script>
+        function hesaplaVKI() {
+            var boy = parseFloat(document.getElementById("boy").value);
+            var kilo = parseFloat(document.getElementById("kilo").value);
+            var sonuc = document.getElementById("Sonuc"); // id'yi Sonuc olarak değiştirdik
+
+            var vki = kilo / ((boy / 100) * (boy / 100));
+            sonuc.value = ''; // boşaltma işlemi
+
+            if (vki < 18.5) {
+                sonuc.value = "Çok zayıfsınız";
+            } else if (vki >= 18.5 && vki <= 25) {
+                sonuc.value = "Tebrikler sağlıklısınız";
+            } else {
+                sonuc.value = "Çok kilolusunuz ";
+            }
+
+            document.getElementById("VKİ").value = vki;
+        }
+
+        function resetForm() {
+            document.getElementById("boy").value = "";
+            document.getElementById("kilo").value = "";
+            document.getElementById("VKİ").value = "";
+            document.getElementById("Sonuc").value = "";
+        }
+    </script>
+</body>
+
+</html>
